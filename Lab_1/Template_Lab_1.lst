@@ -1,0 +1,22 @@
+# file opened: C:\Users\MoeNi\OneDrive\Skrivbord\Uni\Madrid\UFV\Semester 3 UFV\Computer Architecture and Organisation\AOC_MainFolder\Lab_1\Template_Lab_1.asm
+ 1    0000                      DEVICE ZXSPECTRUM48
+ 2    0000              	SLDOPT COMMENT WPMEM, LOGPOINT, ASSERTION
+ 3    0000                      org $8000               ; Program is located from memory address $8000 = 32768
+ 4    8000
+ 5    8000 F3           begin:          di              ; Disable Interrupts
+ 6    8001 31 00 00                     ld sp,0         ; Set stack pointer to top of ram (RAMTOP)
+ 7    8004
+ 8    8004              ;-------------------------------------------------------------------------------------------------
+ 9    8004              ; Student Code
+10    8004 3E 07                ld a, 7
+11    8006              loop:
+12    8006 D3 FE                out ($fe), a
+13    8008 3D                   dec a
+14    8009                      ; cp 255 ; this is comparing with -1
+15    8009 20 02                jr nz, endofcode
+16    800B 18 F9                jr loop
+17    800D              ; for for loops think of B, for arithmetic operations think of A
+18    800D              ;-------------------------------------------------------------------------------------------------
+19    800D 18 FE        endofcode:      jr endofcode    ; Infinite loop
+20    800F
+# file closed: C:\Users\MoeNi\OneDrive\Skrivbord\Uni\Madrid\UFV\Semester 3 UFV\Computer Architecture and Organisation\AOC_MainFolder\Lab_1\Template_Lab_1.asm
